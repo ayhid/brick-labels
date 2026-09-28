@@ -56,3 +56,7 @@ labels-d101/
 CHANGES.md
 claude-code-prompt.md
 list.txt
+
+# Example outputs are published
+!examples/**/*.png
+!examples/*.pdf

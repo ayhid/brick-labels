@@ -2,6 +2,38 @@
 
 A command-line tool (`lego-labels`) that generates printable labels for LEGO piece organization: part image, part name and part number. It makes A4 PDF sheets, or print-ready labels for the Niimbot D101 thermal label printer, which it can also print directly over USB.
 
+## Examples
+
+Labels for six common parts, generated from [`examples/parts.txt`](examples/parts.txt). All files are in [`examples/`](examples/).
+
+**Niimbot D101, 15x50 mm roll** (`--label-size 15x50`): 1-bit, dithered part image, 120x400 px at 203 dpi.
+
+![Niimbot D101 labels, 15x50 mm](examples/d101-15x50-preview.png)
+
+**Niimbot D101, 25x30 mm roll** (`--label-size 25x30`): shorter labels stack name, image and part number.
+
+![Niimbot D101 labels, 25x30 mm](examples/d101-25x30-preview.png)
+
+<img src="examples/d101-print-ready-preview.png" alt="Print-ready D101 label, rotated for the printer" width="120" align="right">
+
+**Print-ready file** (right, shown at 2x): what is sent to the printer, rotated 90 degrees so the rows run along the paper feed. The previews above show the labels in reading orientation.
+
+```bash
+lego-labels --file examples/parts.txt --printer niimbot-d101 --label-size 15x50 --out examples/d101-15x50 --sheet
+```
+
+<br clear="right">
+
+**A4 PDF sheet** (default output, [`examples/labels.pdf`](examples/labels.pdf)): 46x24 mm labels in a 4x12 grid with a cutting grid.
+
+![A4 PDF label sheet](examples/pdf-preview.png)
+
+```bash
+lego-labels --file examples/parts.txt --output examples/labels.pdf
+```
+
+Part images in the examples come from [BrickArchitect](https://brickarchitect.com), see [Credits](#credits).
+
 ## Features
 
 - Fetch LEGO part information from BrickArchitect
@@ -304,6 +336,7 @@ brick-labels/
 │   ├── generator.py      # PDF generation
 │   ├── raster.py         # 1-bit PNG labels (Niimbot D101)
 │   └── niimbot.py        # Optional direct printing on the D101
+├── examples/             # Example outputs shown in this README
 ├── tests/
 │   ├── test_fetcher.py   # Fetcher tests
 │   ├── test_generator.py # Generator tests
@@ -329,7 +362,7 @@ This project stands on the work of others. Thank you to all of them.
 
 ### Data
 
-- **[BrickArchitect](https://brickarchitect.com)** by Tom Alphin: part names and part images are fetched from its LEGO parts guide at run time. They are not included in this repository, and they remain the property of their owner. Downloaded images are cached locally only.
+- **[BrickArchitect](https://brickarchitect.com)** by Tom Alphin: part names and part images are fetched from its LEGO parts guide at run time and cached locally. The tool does not ship any of them. The example labels in [`examples/`](examples/) contain six of these images, converted to 1-bit, to show the output. They remain the property of their owner and will be removed on request.
 
 ### Niimbot printing
 
