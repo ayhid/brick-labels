@@ -55,6 +55,18 @@ cd brick-labels
 pip install -e .
 ```
 
+### As a global command (uv)
+
+With [uv](https://docs.astral.sh/uv/) installed, this installs `lego-labels` in its own environment, with direct printing support, and makes it available in every terminal without activating a virtualenv:
+
+```bash
+git clone https://github.com/ayhid/brick-labels.git
+cd brick-labels
+./install.sh
+```
+
+The install is editable, so code changes take effect immediately. Run `./install.sh` again after changing dependencies in `setup.py`. To remove it: `uv tool uninstall lego-labels`.
+
 ### Using pip (once published)
 
 ```bash
