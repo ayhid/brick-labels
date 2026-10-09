@@ -96,8 +96,8 @@ lego-labels [OPTIONS] [REFERENCES]...
 - `--file, -f PATH`: Read part references from file (one per line)
 - `--interactive, -i`: Interactive mode - enter part references one by one
 - `--output, -o FILE`: Output PDF file (default: labels.pdf)
-- `--width FLOAT`: Label width in mm (default: 70)
-- `--height FLOAT`: Label height in mm (default: 70)
+- `--width FLOAT`: Label width in mm (default: 46)
+- `--height FLOAT`: Label height in mm (default: 24)
 - `--preview, -p`: Open PDF automatically after generation
 - `--printer niimbot-d101`: Output print-ready PNGs for the Niimbot D101 (see [Niimbot D101](#niimbot-d101-thermal-label-printer))
 - `--verbose, -v`: Show detailed progress information
